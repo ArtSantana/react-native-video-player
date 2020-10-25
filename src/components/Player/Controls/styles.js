@@ -1,8 +1,4 @@
 import {StyleSheet} from 'react-native';
-// import {
-//   widthPercentageToDP as wp,
-//   heightPercentageToDP as hp,
-// } from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,14 +11,14 @@ const styles = StyleSheet.create({
   },
 
   fullscreen: {
-    bottom: 0,
+    bottom: '2%',
     position: 'absolute',
-    right: 0,
+    right: '4%',
   },
   volume: {
-    bottom: 0,
+    bottom: '2%',
     position: 'absolute',
-    left: 0,
+    left: '4%',
   },
 });
 
