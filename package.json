@@ -1,5 +1,5 @@
 {
-  "name": "videoPlayer",
+  "name": "react-native-video-player",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -14,9 +14,6 @@
   "dependencies": {
     "react": "16.11.0",
     "react-native": "0.62.0",
-    "react-native-reanimated": "^1.13.1",
-    "react-native-redash": "^15.9.0",
-    "react-native-responsive-screen": "^1.4.1",
     "react-native-vector-icons": "^7.1.0",
     "react-native-video": "^5.1.0-alpha8"
   },
