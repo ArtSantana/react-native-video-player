@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
 
   video: {
-    height: '40%',
+    height: '50%',
     width: '100%',
   },
 });
