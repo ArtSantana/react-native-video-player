@@ -5,6 +5,16 @@ import styles from './styles';
 import {useState} from 'react';
 import {TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
 
+interface Props {
+  color?: string;
+  isFullScreen: boolean;
+  isMuted: boolean;
+  onPressFullScreen(): void;
+  onPressPause(): void;
+  onPressVolume(): void;
+  paused: boolean;
+}
+
 const Controls = ({
   color,
   isFullScreen,
@@ -13,9 +23,9 @@ const Controls = ({
   onPressPause,
   onPressVolume,
   paused,
-}) => {
+}: Props) => {
   const colorIcons = color ? color : '#fff';
-  const [isVisible, setVisible] = useState(true);
+  const [isVisible, setVisible] = useState<boolean>(true);
 
   const onPressControls = () => {
     setVisible(!isVisible);
