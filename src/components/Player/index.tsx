@@ -5,7 +5,13 @@ import styles from './styles';
 import {useState} from 'react';
 import {View, Platform} from 'react-native';
 
-const Player = ({resizeMode, source, style}) => {
+interface Props {
+  resizeMode?: 'stretch' | 'contain' | 'cover' | 'none';
+  source: {uri?: string; headers?: {[key: string]: string}} | number;
+  style?: Object;
+}
+
+const Player = ({resizeMode, source, style}: Props) => {
   const [isMuted, setMuted] = useState(true);
   const [isPaused, setPaused] = useState(false);
   const [isFullScreen, setFullScreen] = useState(false);
@@ -47,7 +53,6 @@ const Player = ({resizeMode, source, style}) => {
         onPressPause={onPressPause}
         onPressVolume={onPressVolume}
         paused={isPaused}
-        setPaused={setPaused}
       />
     </View>
   );

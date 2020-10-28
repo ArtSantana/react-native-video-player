@@ -1,22 +1,21 @@
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
 import {Animated} from 'react-native';
 
 export const DEFAULT_DURATION = 300;
 
-export default class FadeInOut extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    visible: PropTypes.bool.isRequired,
-    duration: PropTypes.number,
-    style: PropTypes.object,
-  };
+interface Props {
+  children: React.ReactNode;
+  visible: boolean;
+  duration?: number;
+  style: Object;
+}
 
+export default class FadeInOut extends PureComponent<Props> {
   state = {
     fadeAnim: new Animated.Value(this.props.visible ? 1 : 0),
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props) {
     const {duration} = this.props;
 
     if (prevProps.visible !== this.props.visible) {
