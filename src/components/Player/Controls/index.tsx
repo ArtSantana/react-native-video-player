@@ -37,7 +37,8 @@ const Controls = ({
         onPress={onPressControls}
         style={styles.container}>
         <View style={styles.container}>
-          <TouchableOpacity onPress={onPressPause}>
+          <TouchableOpacity
+            onPress={isVisible ? onPressPause : onPressControls}>
             <MaterialIcons
               name={paused ? 'play-arrow' : 'pause'}
               color={colorIcons}
@@ -45,7 +46,7 @@ const Controls = ({
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={onPressFullScreen}
+            onPress={isVisible ? onPressFullScreen : onPressControls}
             style={styles.fullscreen}>
             <MaterialIcons
               name={isFullScreen ? 'fullscreen-exit' : 'fullscreen'}
@@ -53,7 +54,9 @@ const Controls = ({
               size={24}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={onPressVolume} style={styles.volume}>
+          <TouchableOpacity
+            onPress={isVisible ? onPressVolume : onPressControls}
+            style={styles.volume}>
             <MaterialIcons
               name={isMuted ? 'volume-off' : 'volume-up'}
               color={colorIcons}
