@@ -2,8 +2,8 @@ import React from 'react';
 import Video from 'react-native-video';
 import Controls from './Controls';
 import styles from './styles';
-import {useState} from 'react';
-import {View, Platform} from 'react-native';
+import {useEffect, useState} from 'react';
+import {BackHandler, Platform, View} from 'react-native';
 
 interface Props {
   resizeMode?: 'stretch' | 'contain' | 'cover' | 'none';
@@ -19,6 +19,21 @@ const Player = ({resizeMode, source, style}: Props) => {
     height: '100%',
     width: '100%',
   };
+
+  useEffect(() => {
+    const exitFullScreen = () => {
+      if (isFullScreen) {
+        setFullScreen(false);
+        return true;
+      }
+      return false;
+    };
+    BackHandler.addEventListener('hardwareBackPress', exitFullScreen);
+
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', exitFullScreen);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onPressFullScreen = () => {
     setFullScreen(!isFullScreen);
