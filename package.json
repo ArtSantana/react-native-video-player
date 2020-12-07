@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "android-clean": "cd android; ./gradlew clean; cd ..; react-native run-android",
+    "android": "react-native run-android --root example/",
+    "android-clean": "cd android; ./gradlew clean; cd ..; yarn android",
     "ci": "yarn lint && yarn typescript",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "pod": "cd ios; pod install; cd ..;",
-    "start": "react-native start",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "typescript": "tsc --noEmit"
   },
